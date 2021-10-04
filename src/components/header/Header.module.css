@@ -1,0 +1,39 @@
+header,
+nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(196, 201, 201);
+  position: sticky;
+}
+
+.title {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 30px;
+}
+
+.manage {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login {
+  margin-left: 20px;
+  margin-right: 5px;
+}
+
+.home {
+  margin-right: 20px;
+}
+
+.button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: rgb(196, 201, 201);
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 20px;
+}
