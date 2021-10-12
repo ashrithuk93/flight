@@ -11,7 +11,7 @@ const Header = () => {
 
   const logoutHandler = () => {
     dispatch({ type: "LOGOUT" });
-
+git 
     history.push("/login");
   };
 
