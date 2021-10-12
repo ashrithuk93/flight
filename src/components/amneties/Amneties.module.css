@@ -1,0 +1,38 @@
+.detail-layout {
+  width: 30%;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.flight-control {
+  text-align: left;
+  display: flex;
+  -webkit-box-shadow: 0 4px 6px -6px #000000;
+  -moz-box-shadow: 0 4px 6px -6px #000000;
+  box-shadow: 0 4px 6px -6px #000000;
+}
+
+.link {
+  margin: 10px;
+}
+
+.flight-detail {
+  text-align: left;
+  -webkit-box-shadow: 0 4px 6px -6px #000000;
+  -moz-box-shadow: 0 4px 6px -6px #000000;
+  box-shadow: 0 4px 6px -6px #000000;
+}
+
+.color-code {
+  -webkit-box-shadow: 0 4px 6px -6px #000000;
+  -moz-box-shadow: 0 4px 6px -6px #000000;
+  box-shadow: 0 4px 6px -6px #000000;
+}
+
+.service {
+  text-align: left;
+}
+
+.service ul {
+  list-style-type: circle;
+}

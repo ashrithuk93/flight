@@ -1,0 +1,11 @@
+.layout {
+  background-color: #fafafa93;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  padding: 10px;
+  box-shadow: 5px 10px 18px #888888;
+  border-radius: 20px;
+}
