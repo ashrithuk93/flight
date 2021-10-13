@@ -1,8 +1,13 @@
-import { user as data } from "./UsersData";
+const initialState = [
+  {
+    loggedIn: false,
+    auth: false,
+  },
+];
 
 export const userReducer = (
   state = JSON.parse(localStorage.getItem("user")) === null
-    ? data
+    ? initialState
     : JSON.parse(localStorage.getItem("user")),
   action
 ) => {

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 
 import classes from "./Passengers.module.css";
 
@@ -26,11 +28,13 @@ const Passengers = () => {
     setParseValue(data[0].passengers);
   };
 
+  console.log("Admin access...", selector[0].auth);
+
   return (
     <table className={classes.customers}>
       <tbody>
         <tr>
-          <th colSpan={5}>
+          <th colSpan={selector[0].auth ? 5 : 4}>
             {data[0].name} Passengers{" "}
             <button onClick={filterHandler}>Filter by Bookings</button>{" "}
             <button onClick={removeFilterHandler}>Remove Filter</button>
@@ -41,7 +45,7 @@ const Passengers = () => {
           <th>Name</th>
           <th>Ancillary</th>
           <th></th>
-          <th></th>
+          {selector[0].auth && <th></th>}
         </tr>
         {parseValue.map((item, index) => (
           <tr key={item.seat}>
@@ -55,33 +59,35 @@ const Passengers = () => {
                 <p>With infant: {item.infant ? "Yes" : "No"}</p>
               )}
             </td>
-            <td>
-              <button
-                type="button"
+            {item.name.length > 0 ? (
+              <td
                 onClick={() => {
                   history.push(`/bookings/${params.id}/${item.seat}`);
                 }}
               >
-                {item.name.length > 0 ? "Edit" : "Book"}
-              </button>
-            </td>
-            <td>
-              {item.name.length > 0 && selector[0].auth ? (
-                <button
-                  type="button"
-                  onClick={() => {
-                    dispatch({
-                      type: "DELETE_PASSENGER",
-                      payload: { fid: params.id, pid: index },
-                    });
-                  }}
-                >
-                  Delete
-                </button>
-              ) : (
-                ""
-              )}
-            </td>
+                <EditIcon />
+              </td>
+            ) : (
+              <td
+                onClick={() => {
+                  history.push(`/bookings/${params.id}/${item.seat}`);
+                }}
+              >
+                <button type="button">Book Now</button>
+              </td>
+            )}
+            {item.name.length > 0 && selector[0].auth && (
+              <td
+                onClick={() => {
+                  dispatch({
+                    type: "DELETE_PASSENGER",
+                    payload: { fid: params.id, pid: index },
+                  });
+                }}
+              >
+                <DeleteIcon />
+              </td>
+            )}
           </tr>
         ))}
       </tbody>

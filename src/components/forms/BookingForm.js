@@ -51,7 +51,7 @@ const BookingForm = () => {
 
   return (
     <form onSubmit={submithandler} className={classes.form}>
-      <h2>Manage Seat Bookings</h2>
+      <h5>Seat not booked yet. Enter detials to book now.</h5>
       <h3>Seat Number: {seatNumber}</h3>
       <input
         className={classes.input}

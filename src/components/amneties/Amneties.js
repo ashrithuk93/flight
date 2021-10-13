@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import ShopIcon from "@material-ui/icons/Shop";
+import ManageIcon from "@material-ui/icons/People";
 
 import SeatType from "./SeatType";
 
@@ -18,15 +20,15 @@ const Amneties = (props) => {
       <div className={classes["flight-control"]}>
         <div className={classes.link}>
           {data[0].loggedIn && (
-            <Link to={`/anscillaries/${params.id}`}>
-              <h6>Shop Request</h6>
+            <Link to={`/list/${params.id}`}>
+              <ManageIcon />
             </Link>
           )}
         </div>
         <div className={classes.link}>
           {data[0].loggedIn && (
-            <Link to={`/list/${params.id}`}>
-              <h6>Passenger Detail</h6>
+            <Link to={`/anscillaries/${params.id}`}>
+              <ShopIcon />
             </Link>
           )}
         </div>

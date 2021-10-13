@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import HomeIcon from "@material-ui/icons/Home";
+import FlightIcon from "@material-ui/icons/Flight";
 
 import classes from "./Header.module.css";
 
@@ -11,7 +13,6 @@ const Header = () => {
 
   const logoutHandler = () => {
     dispatch({ type: "LOGOUT" });
-git 
     history.push("/login");
   };
 
@@ -19,20 +20,22 @@ git
     <header>
       <nav className={classes.header}>
         <div className={classes.title}>
-          <h2>Check-In</h2>
+          <h2>
+            <FlightIcon style={{ height: 20, width: 20 }} /> Check-In
+          </h2>
         </div>
         <div className={classes.manage}>
           {login && (
             <div className={classes.home}>
               <Link to="/flight">
-                <h3>Home</h3>
+                <HomeIcon style={{ height: 40, width: 40 }} />
               </Link>
             </div>
           )}
           {login && (
-            <button className={classes.button} onClick={logoutHandler}>
+            <div className={classes.button} onClick={logoutHandler}>
               <h3>Logout</h3>
-            </button>
+            </div>
           )}
         </div>
       </nav>

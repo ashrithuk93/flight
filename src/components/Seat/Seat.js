@@ -1,10 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import classes from "./Seat.module.css";
 
 const Seat = (props) => {
+  const history = useHistory();
   const styleList = ["", "booked", "disabilities", "infant"];
   const styleCode = props.disabled
     ? 2
@@ -19,11 +20,14 @@ const Seat = (props) => {
   const { id } = useParams();
 
   const onclickHandler = () => {
-    // console.log(props.infant);
-    dispatch({
-      type: "CHECK_IN",
-      payload: { fid: id, seat: props.id, check: props.checkedIn },
-    });
+    if (styleCode === 0) {
+      history.push(`/bookings/${id}/${props.id}`);
+    } else {
+      dispatch({
+        type: "CHECK_IN",
+        payload: { fid: id, seat: props.id, check: props.checkedIn },
+      });
+    }
   };
 
   const checkedStyle = props.checkedIn && props.booked ? "clicked" : "seat";

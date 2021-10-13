@@ -12,6 +12,7 @@ nav {
 .title {
   font-family: Arial, Helvetica, sans-serif;
   margin-left: 30px;
+  color: rgb(130, 128, 131);
 }
 
 .manage {
@@ -25,15 +26,23 @@ nav {
 }
 
 .home {
-  margin-right: 20px;
+  padding-top: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: rgb(202, 185, 218);
+  border-right: 0.1px solid rgb(114, 92, 114);
+}
+
+.home:hover {
+  background-color: blueviolet;
 }
 
 .button {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  background-color: rgb(196, 201, 201);
-  border-radius: 10px;
+  background-color: rgb(202, 185, 218);
   padding-left: 10px;
   padding-right: 10px;
-  margin-left: 20px;
+}
+
+.button:hover {
+  background-color: blueviolet;
 }
