@@ -12,12 +12,13 @@ const Passengers = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const selector = useSelector((state) => state.flightReducer);
+  const user = useSelector((state) => state.userReducer);
 
   const parsedData = selector.filter((item) => item.id === params.id);
   const data = parsedData.filter((item) => item.id === params.id);
   const [parseValue, setParseValue] = useState(data[0].passengers);
 
-  console.log("Admin Access", selector[0].auth);
+  console.log("Admin Access, passenger.js", user[0].auth);
 
   const filterHandler = () => {
     let passengers = data[0].passengers.filter((data) => data.name.length > 0);
@@ -34,7 +35,7 @@ const Passengers = () => {
     <table className={classes.customers}>
       <tbody>
         <tr>
-          <th colSpan={selector[0].auth ? 5 : 4}>
+          <th colSpan={5}>
             {data[0].name} Passengers{" "}
             <button onClick={filterHandler}>Filter by Bookings</button>{" "}
             <button onClick={removeFilterHandler}>Remove Filter</button>
@@ -45,7 +46,7 @@ const Passengers = () => {
           <th>Name</th>
           <th>Ancillary</th>
           <th></th>
-          {selector[0].auth && <th></th>}
+          {<th></th>}
         </tr>
         {parseValue.map((item, index) => (
           <tr key={item.seat}>
@@ -76,7 +77,7 @@ const Passengers = () => {
                 <button type="button">Book Now</button>
               </td>
             )}
-            {item.name.length > 0 && selector[0].auth && (
+            {item.name.length > 0 ? (
               <td
                 onClick={() => {
                   dispatch({
@@ -87,7 +88,7 @@ const Passengers = () => {
               >
                 <DeleteIcon />
               </td>
-            )}
+            ) : null}
           </tr>
         ))}
       </tbody>

@@ -14,7 +14,6 @@ export const userReducer = (
   if (action.type === "LOGIN") {
     let updatedList = [...state];
     updatedList[0].loggedIn = true;
-    updatedList[0].auth = !action.payload.access;
     localStorage.setItem("user", JSON.stringify(updatedList));
     return updatedList;
   }
@@ -23,6 +22,13 @@ export const userReducer = (
     let updatedList = [...state];
     updatedList[0].loggedIn = false;
     updatedList[0].auth = false;
+    localStorage.setItem("user", JSON.stringify(updatedList));
+    return updatedList;
+  }
+
+  if (action.type === "ADMIN") {
+    let updatedList = [...state];
+    updatedList[0].auth = action.payload.access;
     localStorage.setItem("user", JSON.stringify(updatedList));
     return updatedList;
   }

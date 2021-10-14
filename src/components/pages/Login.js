@@ -2,19 +2,32 @@ import { useState } from "react";
 
 import { useHistory } from "react-router-dom";
 import GoogleLogin from "react-google-login";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import classes from "./Login.module.css";
 
-const Login = (props) => {
+const Login = () => {
   const history = useHistory();
   const data = useSelector((state) => state.userReducer[0]);
+  const dispatch = useDispatch();
   const [admin, setAdmin] = useState(false);
 
-  const responseGoogle = (response) => {
-    props.loginHandler(response);
-    props.accessHandler(admin);
-    history.push("/flight");
+  const responseGoogle = async (response) => {
+    try {
+      const accessToken = await response.$b.access_token;
+      if (accessToken && !response.error) {
+        dispatch({ type: "LOGIN" });
+      }
+      history.push("/flight");
+    } catch (error) {
+      console.log("Login Failed");
+    }
+  };
+
+  const accessHandler = () => {
+    console.log(data.auth);
+    setAdmin(!admin);
+    dispatch({ type: "ADMIN", payload: { access: admin } });
   };
 
   let renderItem = data.loggedIn ? (
@@ -32,15 +45,7 @@ const Login = (props) => {
         className={classes.button}
       />
       <label className={classes.label}>
-        <input
-          type="checkbox"
-          checked={admin}
-          onChange={() => {
-            console.log("from Login Before, access", admin);
-            setAdmin(!admin);
-            console.log("from Login, access After", admin);
-          }}
-        />
+        <input type="checkbox" checked={admin} onChange={accessHandler} />
         {"Admin access"}
       </label>
     </div>
