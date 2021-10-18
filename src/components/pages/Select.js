@@ -10,9 +10,6 @@ const Select = () => {
   const history = useHistory();
 
   const data = useSelector((state) => state.flightReducer);
-  // let loggedIn = data[0].loggedIn;
-  // console.log("from select.js", loggedIn);
-  // //const data = JSON.parse(localStorage.getItem("data"));
 
   return (
     <Layout>

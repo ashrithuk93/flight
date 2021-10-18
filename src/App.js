@@ -8,6 +8,7 @@ import Select from "./components/pages/Select";
 import Modal from "./components/modal/Modal";
 import Layout from "./components/UI/Layout";
 import { useSelector } from "react-redux";
+import LoadingSpinner from "./components/UI/LoadingSpinner";
 
 const Passengers = React.lazy(() => import("./components/pages/Passengers"));
 const BookingForm = React.lazy(() => import("./components/forms/BookingForm"));
@@ -20,13 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-      <Suspense
-        fallback={
-          <Layout>
-            <p className="centered">Loading...</p>
-          </Layout>
-        }
-      >
+      <Suspense fallback={<LoadingSpinner />}>
         <Switch>
           <Route path="/login">
             <Layout>
