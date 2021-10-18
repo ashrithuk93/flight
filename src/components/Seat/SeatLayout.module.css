@@ -1,5 +1,6 @@
 .outline {
   width: 30%;
+  text-align: center;
   height: auto;
   display: flex;
   flex-wrap: wrap;
@@ -7,4 +8,17 @@
   padding-left: 10%;
   padding-right: 10%;
   box-shadow: -20px 0 20px -20px #000000 inset;
+}
+
+@media (max-width: 800px) {
+  .outline {
+    width: 50%;
+    text-align: center;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
 }

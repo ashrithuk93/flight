@@ -26,3 +26,24 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+@media screen and (max-width: 480px) {
+  .flight {
+    position: inherit;
+    width: 80px;
+    border-radius: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    box-shadow: 3px 7px 12px #0e0d0d;
+  }
+  .left {
+    width: 33px;
+  }
+  .aisle {
+    width: 17px;
+  }
+  .right {
+    width: 33px;
+  }
+}

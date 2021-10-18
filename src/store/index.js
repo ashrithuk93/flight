@@ -1,7 +1,12 @@
-import { createStore, combineReducers } from "redux";
-import { userReducer } from "./users";
-import { flightReducer } from "./flight";
+import { configureStore } from "@reduxjs/toolkit";
+import userSlice from "./users";
+import flightSlice from "./flight";
 
-const store = createStore(combineReducers({ flightReducer, userReducer }));
+const store = configureStore({
+  reducer: {
+    flightReducer: flightSlice.reducer,
+    userReducer: userSlice.reducer,
+  },
+});
 
 export default store;

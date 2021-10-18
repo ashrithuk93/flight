@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { flightActions } from "../../store/flight";
 import { useParams, useHistory } from "react-router-dom";
 
 import classes from "./BookingForm.module.css";
@@ -31,9 +32,8 @@ const BookingForm = () => {
   const submithandler = (event) => {
     event.preventDefault();
 
-    dispatch({
-      type: "EDIT_PASSENGER",
-      payload: {
+    dispatch(
+      flightActions.editPassenger({
         id: params.id,
         seatNumber,
         name,
@@ -43,8 +43,8 @@ const BookingForm = () => {
         services,
         wheelChairValue,
         infantValue,
-      },
-    });
+      })
+    );
 
     history.push(`/flight/${params.id}`);
   };

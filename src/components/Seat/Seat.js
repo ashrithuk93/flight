@@ -1,11 +1,13 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { flightActions } from "../../store/flight";
 
 import classes from "./Seat.module.css";
 
 const Seat = (props) => {
   const history = useHistory();
+  const user = useSelector((state) => state.userReducer[0]);
   const styleList = ["", "booked", "disabilities", "infant"];
   const styleCode = props.disabled
     ? 2
@@ -21,12 +23,22 @@ const Seat = (props) => {
 
   const onclickHandler = () => {
     if (styleCode === 0) {
-      history.push(`/bookings/${id}/${props.id}`);
+      if (user.auth) {
+        history.push(`/bookings/${id}/${props.id}`);
+      } else {
+        alert(
+          "Can not check-in as the seat is not booked. Login as an admin to book tickets."
+        );
+        history.push(`/flight/${id}`);
+      }
     } else {
-      dispatch({
-        type: "CHECK_IN",
-        payload: { fid: id, seat: props.id, check: props.checkedIn },
-      });
+      dispatch(
+        flightActions.checkIn({
+          fid: id,
+          seat: props.id,
+          check: props.checkedIn,
+        })
+      );
     }
   };
 

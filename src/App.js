@@ -16,7 +16,7 @@ const Manage = React.lazy(() => import("./components/pages/Manage"));
 
 function App() {
   let selector = useSelector((state) => state.userReducer[0]);
-  console.log("from App.js...", selector.auth);
+  console.log("from App.js...", selector.loggedIn);
 
   return (
     <BrowserRouter>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "../../store/users";
 import HomeIcon from "@material-ui/icons/Home";
 import FlightIcon from "@material-ui/icons/Flight";
 
@@ -12,7 +13,7 @@ const Header = () => {
   const login = useSelector((state) => state.userReducer[0].loggedIn);
 
   const logoutHandler = () => {
-    dispatch({ type: "LOGOUT" });
+    dispatch(userActions.logout());
     history.push("/login");
   };
 
