@@ -1,7 +1,9 @@
+import React from "react";
 import { useHistory } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 import { useSelector, useDispatch } from "react-redux";
 import { userActions } from "../../store/users";
+import { thunkLogin } from "../../store/user-actions";
 
 import classes from "./Login.module.css";
 
@@ -12,12 +14,9 @@ const Login = () => {
 
   const responseGoogle = async (response) => {
     try {
-      const accessToken = await response.$b.access_token;
-      if (accessToken && !response.error) {
-        dispatch(userActions.login());
-      }
+      await dispatch(thunkLogin(response));
       history.push("/flight");
-    } catch (error) {
+    } catch (e) {
       console.log("Login Failed");
     }
   };
