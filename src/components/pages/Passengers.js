@@ -97,9 +97,9 @@ const Passengers = () => {
               >
                 <DeleteIcon />
               </td>
-            ) : (
+            ) : user[0].auth ? (
               <td></td>
-            )}
+            ) : null}
           </tr>
         ))}
       </tbody>
