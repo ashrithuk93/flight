@@ -46,3 +46,17 @@ nav {
 .button:hover {
   background-color: blueviolet;
 }
+
+.home-icon {
+  height: 80px;
+  width: 80px;
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: xx-small;
+  }
+  .button {
+    font-size: small;
+  }
+}

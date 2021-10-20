@@ -13,12 +13,8 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const responseGoogle = async (response) => {
-    try {
-      await dispatch(thunkLogin(response));
-      history.push("/flight");
-    } catch (e) {
-      console.log("Login Failed");
-    }
+    await dispatch(thunkLogin(response));
+    history.push("/flight");
   };
 
   const accessHandler = () => {

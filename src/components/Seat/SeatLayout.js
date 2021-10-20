@@ -8,6 +8,10 @@ const SeatLayout = (props) => {
   return (
     <div className={classes.outline}>
       <FlightLayout id={props.id} />
+      <div className={classes.bar}>
+        <div className={classes["business-bar"]}></div>
+        <div className={classes["economy-bar"]}></div>
+      </div>
     </div>
   );
 };

@@ -14,7 +14,7 @@ const Select = () => {
   return (
     <Layout>
       <div className={classes.list}>
-        <h3>Select Flight from the list</h3>
+        <h3 className={classes.header}>Select Flight from the list</h3>
         <ul>
           {data.map((flight) => (
             <li

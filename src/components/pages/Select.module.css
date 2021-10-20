@@ -3,6 +3,10 @@
   width: 90%;
 }
 
+.list h3 {
+  font-size: large;
+}
+
 .list ul {
   list-style: none;
 }
@@ -22,4 +26,24 @@
   -webkit-box-shadow: 0 10px 5px #888888;
   -moz-box-shadow: 0 10px 5px #888888;
   box-shadow: 0 10px 5px #888888;
+}
+
+@media screen and (max-width: 800px) {
+  .list h3 {
+    font-size: small;
+  }
+
+  .list ul li {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .list h3 {
+    font-size: small;
+  }
+
+  .list ul li {
+    font-size: x-small;
+  }
 }

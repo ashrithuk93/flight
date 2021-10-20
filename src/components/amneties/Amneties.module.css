@@ -2,6 +2,7 @@
   width: 30%;
   padding-left: 10%;
   padding-right: 10%;
+  font-family: fantasy;
 }
 
 .flight-control {
@@ -37,4 +38,18 @@
 
 .service ul {
   list-style-type: circle;
+}
+
+@media (max-width: 800px) {
+  .detail-layout {
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  .detail-layout {
+    font-size: x-small;
+  }
 }

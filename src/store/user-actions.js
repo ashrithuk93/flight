@@ -2,7 +2,8 @@ import { userActions } from "./users";
 
 export const thunkLogin = (response) => {
   return async (dispatch) => {
-    const accessToken = await response.$b.access_token;
+    const accessToken = await response.Zb.access_token;
+    console.log(response.Zb.access_token);
     try {
       if (accessToken && !response.error) {
         dispatch(userActions.login());

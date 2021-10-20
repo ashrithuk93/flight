@@ -33,3 +33,22 @@
 .icons:hover {
   background-color: blueviolet;
 }
+
+@media screen and (max-width: 800px) {
+  .customers {
+    font-size: small;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 0px;
+    font-size: x-small;
+  }
+}
