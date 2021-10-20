@@ -147,6 +147,15 @@ const BookingForm = () => {
         <button type="submit" className={classes.button}>
           Save Changes
         </button>
+        <button
+          className={classes.button}
+          type="button"
+          onClick={() => {
+            history.push(`/flight/${params.id}`);
+          }}
+        >
+          Cancel
+        </button>
       </p>
     </form>
   );

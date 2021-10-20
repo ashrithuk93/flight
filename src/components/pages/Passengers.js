@@ -97,7 +97,9 @@ const Passengers = () => {
               >
                 <DeleteIcon />
               </td>
-            ) : null}
+            ) : (
+              <td></td>
+            )}
           </tr>
         ))}
       </tbody>
