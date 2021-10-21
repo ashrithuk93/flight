@@ -19,18 +19,14 @@ const Amneties = (props) => {
     <div className={classes["detail-layout"]}>
       <div className={classes["flight-control"]}>
         <div className={classes.link}>
-          {data[0].loggedIn && (
-            <Link to={`/list/${params.id}`}>
-              <ManageIcon />
-            </Link>
-          )}
+          <Link to={`/list/${params.id}`}>
+            <ManageIcon />
+          </Link>
         </div>
         <div className={classes.link}>
-          {data[0].loggedIn && (
-            <Link to={`/anscillaries/${params.id}`}>
-              <ShopIcon />
-            </Link>
-          )}
+          <Link to={`/anscillaries/${params.id}`}>
+            <ShopIcon />
+          </Link>
         </div>
       </div>
       <div className={classes["flight-detail"]}>
