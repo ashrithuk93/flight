@@ -4,9 +4,9 @@ import { createSlice } from "@reduxjs/toolkit";
 const flightSlice = createSlice({
   name: "flight",
   initialState:
-    JSON.parse(localStorage.getItem("flight_data")) === null
+    JSON.parse(localStorage.getItem("flightData")) === null
       ? data
-      : JSON.parse(localStorage.getItem("flight_data")),
+      : JSON.parse(localStorage.getItem("flightData")),
   reducers: {
     checkIn(state, action) {
       const flightId = state.findIndex(
@@ -19,7 +19,7 @@ const flightSlice = createSlice({
       if (state[flightId].passengers[passenger].name.length !== 0) {
         state[flightId].passengers[passenger].checkedIn = !action.payload.check;
       }
-      localStorage.setItem("flight_data", JSON.stringify(state));
+      localStorage.setItem("flightData", JSON.stringify(state));
     },
     deletePassenger(state, action) {
       const flightId = state.findIndex(
@@ -36,7 +36,7 @@ const flightSlice = createSlice({
       state[flightId].passengers[passenger].disabled = false;
       state[flightId].passengers[passenger].infant = false;
 
-      localStorage.setItem("flight_data", JSON.stringify(state));
+      localStorage.setItem("flightData", JSON.stringify(state));
     },
     editPassenger(state, action) {
       const flightId = state.findIndex((item) => item.id === action.payload.id);
@@ -54,7 +54,7 @@ const flightSlice = createSlice({
         action.payload.wheelChairValue;
       state[flightId].passengers[passenger].infant = action.payload.infantValue;
 
-      localStorage.setItem("flight_data", JSON.stringify(state));
+      localStorage.setItem("flightData", JSON.stringify(state));
     },
   },
 });

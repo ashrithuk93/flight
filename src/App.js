@@ -7,7 +7,6 @@ import Home from "./components/pages/Home";
 import Select from "./components/pages/Select";
 import Modal from "./components/modal/Modal";
 import Layout from "./components/UI/Layout";
-import { useSelector } from "react-redux";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
 
 const Passengers = React.lazy(() => import("./components/pages/Passengers"));
@@ -15,8 +14,8 @@ const BookingForm = React.lazy(() => import("./components/forms/BookingForm"));
 const Manage = React.lazy(() => import("./components/pages/Manage"));
 
 function App() {
-  let selector = useSelector((state) => state.userReducer[0]);
-  console.log("from App.js...", selector.loggedIn);
+  // let selector = useSelector((state) => state.userReducer[0]);
+  // console.log("from App.js...", selector.loggedIn);
 
   return (
     <BrowserRouter>

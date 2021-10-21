@@ -23,8 +23,6 @@ const Passengers = () => {
     setParseValue(data[0].passengers);
   }, [data]);
 
-  console.log("Admin Access, passenger.js", user[0].auth);
-
   const filterHandler = () => {
     let passengers = data[0].passengers.filter((data) => data.name.length > 0);
     setParseValue(passengers);
@@ -33,8 +31,6 @@ const Passengers = () => {
   const removeFilterHandler = () => {
     setParseValue(data[0].passengers);
   };
-
-  console.log("Admin access...", user[0].auth);
 
   return (
     <table className={classes.customers}>
